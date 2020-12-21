@@ -1,5 +1,7 @@
 First todo-list react app I'm trying to create.
+
 Trying before watching actual Ben's giude on that thing.
+
 Taking on I barely know html/css - good luck to me :)
 
 Expected functionality:
