@@ -19,9 +19,9 @@ export class Body extends React.Component {
         };
     }
 
-    handleNewTodo = (event) => {
+    handleNewTodos = (newTodos) => {
         this.setState({
-            todoArr: [...this.state.todoArr, event.target.value]
+            todoArr: [...this.state.todoArr, ...newTodos]
         })
     }
 
@@ -35,11 +35,11 @@ export class Body extends React.Component {
                     <TodoList
                         todoArr={this.state.todoArr}
                         doneArr={this.state.doneArr}
-                        handleNewTodo={this.handleNewTodo} />
+                        handleNewTodos={this.handleNewTodos} />
                     <DoneList
                         todoArr={this.state.todoArr}
                         doneArr={this.state.doneArr}
-                        handleNewTodo={this.handleNewTodo} />
+                        handleNewTodos={this.handleNewTodos} />
                 </div>
             </div>
         )

@@ -6,7 +6,25 @@ export class TodoList extends React.Component {
             super(props);
         }
 
-        this.state = {};
+        this.state = {
+            tempTodoArr: []
+        };
+    }
+
+    handleAdd = () => {
+        this.setState({
+            tempTodoArr: [...this.state.tempTodoArr, '']
+        });
+    }
+
+    handleSave = () => {
+        let filledTodos = [];
+        this.state.tempTodoArr.forEach(el => el !== '' ? filledTodos.push(el) : null);
+
+        this.props.handleNewTodos(filledTodos);
+        this.setState({
+            tempTodoArr: []
+        })
     }
 
     render() {
@@ -21,9 +39,16 @@ export class TodoList extends React.Component {
                             </p>
                         </li>)
                     }
+                    {this.state.tempTodoArr.map((el, i) =>
+                        <li key={`tempTodo${i}`} className="listItem">
+                            <p>
+                                {el}
+                            </p>
+                        </li>)
+                    }
                 </ul>
-                <button name='add'>Add</button>
-                <button name='save'>Save</button>
+                <button name='add' onClick={this.handleAdd}>Add</button>
+                <button name='save' onClick={this.handleSave}>Save</button>
             </div>
         )
     }
