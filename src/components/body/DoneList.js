@@ -16,7 +16,6 @@ export class DoneList extends React.Component {
                     {this.props.doneArr.map((el, i) =>
                         <li key={`todo${i}`} className="listItem">
                             <p>
-                                {/* <img src='http://forum.rcracer.ru/img/avatars/8744.jpg?no_cache=RdFadbsZ' /> */}
                                 {el}
                             </p>
                         </li>)

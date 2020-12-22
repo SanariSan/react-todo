@@ -25,6 +25,15 @@ export class Body extends React.Component {
         })
     }
 
+    handleDelTodos = (id) => {
+        let todoArr = this.state.todoArr;
+        todoArr.splice(id, 1);
+
+        this.setState({
+            todoArr
+        })
+    }
+
     render() {
         return (
             <div>
@@ -35,11 +44,13 @@ export class Body extends React.Component {
                     <TodoList
                         todoArr={this.state.todoArr}
                         doneArr={this.state.doneArr}
-                        handleNewTodos={this.handleNewTodos} />
+                        handleNewTodos={this.handleNewTodos}
+                        handleDelTodos={this.handleDelTodos} />
                     <DoneList
                         todoArr={this.state.todoArr}
                         doneArr={this.state.doneArr}
-                        handleNewTodos={this.handleNewTodos} />
+                        handleNewTodos={this.handleNewTodos}
+                        handleDelTodos={this.handleDelTodos} />
                 </div>
             </div>
         )

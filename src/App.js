@@ -4,7 +4,13 @@ import { Head } from './components/head/Head';
 
 function App() {
   return (
-    <div className="App">
+    <div
+      className="App"
+      onContextMenu={(event) => {
+        event.preventDefault();
+        return false
+      }}
+    >
       <Head />
       <Body />
     </div>

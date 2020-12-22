@@ -11,6 +11,28 @@ export class TodoList extends React.Component {
         };
     }
 
+    handleClick = (event, i) => {
+
+        if (event.button === 0) {
+            console.log(`Task ${i} is done!`);
+            //this.props.handleDoneTodo(i);
+        }
+        else if (event.button === 2) {
+            console.log(`Task ${i} deleted!`);
+            this.props.handleDelTodos(i);
+        }
+
+    }
+
+    handleInput = (event) => {
+        let tempTodoArr = this.state.tempTodoArr;
+        tempTodoArr[event.target.name] = event.target.value;
+
+        this.setState({
+            tempTodoArr
+        })
+    }
+
     handleAdd = () => {
         this.setState({
             tempTodoArr: [...this.state.tempTodoArr, '']
@@ -31,20 +53,18 @@ export class TodoList extends React.Component {
         return (
             <div className="listWrap">
                 <ul>
-                    {this.props.todoArr.map((el, i) =>
-                        <li key={`todo${i}`} className="listItem">
-                            <p>
-                                {/* <img src='http://forum.rcracer.ru/img/avatars/8744.jpg?no_cache=RdFadbsZ' /> */}
-                                {el}
-                            </p>
-                        </li>)
+                    {
+                        this.props.todoArr.map((el, i) =>
+                            <li key={`todo${i}`} className="listItem">
+                                <p onMouseDown={(event) => this.handleClick(event, i)}>{el}</p>
+                            </li>)
                     }
-                    {this.state.tempTodoArr.map((el, i) =>
-                        <li key={`tempTodo${i}`} className="listItem">
-                            <p>
-                                {el}
-                            </p>
-                        </li>)
+                    {
+                        this.state.tempTodoArr.map((el, i) =>
+                            <li key={`tempTodo${i}`} className="listItem">
+                                <textarea name={i} onChange={this.handleInput} value={el}>
+                                </textarea>
+                            </li>)
                     }
                 </ul>
                 <button name='add' onClick={this.handleAdd}>Add</button>

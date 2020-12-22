@@ -3,7 +3,7 @@
 }
 
 .stats {
-    margin: 10px 120px;
+    margin: 10px 200px;
 }
 
 .listsWrap {}
@@ -24,13 +24,25 @@
 }
 
 .listItem {
-    padding: 5px 40px;
     border-bottom: 2px solid white;
     float: left;
-    max-width: 200px;
+    max-width: 400px;
     word-wrap: break-word;
+    overflow: hidden;
+}
+
+/* .listItem>input {
+    display: block;
+    width: 100%;
+} */
+
+.listItem>textarea {
+    display: block;
+    width: 100%;
+    font-size: 18px;
 }
 
 .listItem>p {
+    padding: 5px 15px;
     display: block;
 }
