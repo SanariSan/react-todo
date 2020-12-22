@@ -13,9 +13,10 @@ here I connect following cps:
 -cp Head {
     -cp Title
 
-    -cp Stats (active todos, completed todos)
 }
 -cp Body {
+    -cp Stats (active todos, completed todos)
+
     -cp TodoList (with all I have to do)
 
     -cp DoneList (where complete goes, 

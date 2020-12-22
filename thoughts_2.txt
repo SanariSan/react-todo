@@ -1,0 +1,13 @@
+So, body part
+TodoList and DoneList, also Body that can contain shared state variables
+
+Both lists should be divs, where we are inserting...I guess <div className=""><p></p></div>
+Each task's text stored in array in state ['do', 'do2'], so we can access it by index
+
+every render() we are drawing elements from array by mapping through it 
+(which key value should I use tho...Think 'todo' + i and 'done' + i is alright)
+
+also it gives access to counting them easily 
+(? i need that in body>DoneList as much as in head>stats too, so I store todos in App, then send with props ?)
+(? or move Stats from head to body, less pain. That's the solution! ?)
+(! so I store all todos in -cp Body and move -cp Stats to body folder !)

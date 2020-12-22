@@ -1,7 +1,6 @@
 import React from 'react';
 import { DoneList } from './DoneList';
 import { TodoList } from './TodoList';
-import { Settings } from './Settings';
 
 export class Body extends React.Component {
     constructor(props) {
@@ -17,7 +16,6 @@ export class Body extends React.Component {
             <div>
                 <DoneList />
                 <TodoList />
-                <Settings />
             </div>
         )
     }
