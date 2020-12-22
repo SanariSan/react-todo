@@ -21,7 +21,7 @@ Expected functionality:
 
 +7. delete all complete (btn)
 
-    / +7.1 only show if at least one todo is complete
++7.1 only show if at least one todo is complete
 
 +8. button to toggle all on/off (?) 
 (probably for me to remember display: none thing, but I get it, so won't do, complete!)
