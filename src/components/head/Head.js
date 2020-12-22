@@ -1,5 +1,4 @@
 import React from 'react';
-import { Stats } from './Stats';
 import { Title } from './Title';
 
 export class Head extends React.Component {
@@ -14,7 +13,6 @@ export class Head extends React.Component {
     render() {
         return (
             <div>
-                <Stats />
                 <Title />
             </div>
         )

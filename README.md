@@ -19,3 +19,7 @@ Expected functionality:
 *Personally expect:
 
 A lot of external html/css
+
+
+
+![expected/result](https://github.com/[SanariSan]/[react-todo]/blob/[master-copy]/expected_result_meme.png?raw=true)

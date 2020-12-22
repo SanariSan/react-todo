@@ -11,8 +11,9 @@ export class Stats extends React.Component {
 
     render() {
         return (
-            <div>
-
+            <div className="statsWrap">
+                <div className='stats'><p>Todos now: {this.props.todoArr.length}</p></div>
+                <div className='stats'><p>Todos done: {this.props.doneArr.length}</p></div>
             </div>
         )
     }
