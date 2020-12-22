@@ -1,0 +1,30 @@
+So, what will my todo look like
+
+visual side:
+
+Last thing to care about
+
+
+code side:
+
+main component(cp) - App.js
+here I connect following cps:
+
+-cp Head {
+    -cp Title
+
+    -cp Stats (active todos, completed todos)
+}
+-cp Body {
+    -cp TodoList (with all I have to do)
+
+    -cp DoneList (where complete goes, 
+        so you can put them back or delete completely)
+
+    -cp Settings (maybe) (Here you set color of the task that will be added / that you editing(??))
+}
+
+And yes, I should somehow store all the created todos.
+Probably with sql db. Need to find how do you actually access db from .sql file.
+
+Think for now without per-user separation, maybe add later
