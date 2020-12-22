@@ -6,46 +6,47 @@ export class TodoList extends React.Component {
             super(props);
         }
 
+        this.origin = 'todoList';
+
         this.state = {
-            tempTodoArr: []
+            tempItemsArr: []
         };
     }
 
     handleClick = (event, i) => {
 
         if (event.button === 0) {
-            console.log(`Task ${i} is done!`);
-            //this.props.handleDoneTodo(i);
+            console.log(`Item ${i} sent to 'Done' list!`);
+            this.props.handleMoveItem(i, this.origin);
         }
         else if (event.button === 2) {
-            console.log(`Task ${i} deleted!`);
-            this.props.handleDelTodos(i);
+            console.log(`Item ${i} deleted from 'todo' list!`);
+            this.props.handleDelItem(i, this.origin);
         }
-
     }
 
     handleInput = (event) => {
-        let tempTodoArr = this.state.tempTodoArr;
-        tempTodoArr[event.target.name] = event.target.value;
+        let tempItemsArr = this.state.tempItemsArr;
+        tempItemsArr[event.target.name] = event.target.value;
 
         this.setState({
-            tempTodoArr
+            tempItemsArr
         })
     }
 
     handleAdd = () => {
         this.setState({
-            tempTodoArr: [...this.state.tempTodoArr, '']
+            tempItemsArr: [...this.state.tempItemsArr, '']
         });
     }
 
     handleSave = () => {
         let filledTodos = [];
-        this.state.tempTodoArr.forEach(el => el !== '' ? filledTodos.push(el) : null);
+        this.state.tempItemsArr.forEach(el => el !== '' ? filledTodos.push(el) : null);
 
-        this.props.handleNewTodos(filledTodos);
+        this.props.handleAddItems(filledTodos);
         this.setState({
-            tempTodoArr: []
+            tempItemsArr: []
         })
     }
 
@@ -60,7 +61,7 @@ export class TodoList extends React.Component {
                             </li>)
                     }
                     {
-                        this.state.tempTodoArr.map((el, i) =>
+                        this.state.tempItemsArr.map((el, i) =>
                             <li key={`tempTodo${i}`} className="listItem">
                                 <textarea name={i} onChange={this.handleInput} value={el}>
                                 </textarea>
@@ -68,7 +69,7 @@ export class TodoList extends React.Component {
                     }
                 </ul>
                 <button name='add' onClick={this.handleAdd}>Add</button>
-                <button name='save' onClick={this.handleSave}>Save</button>
+                {this.state.tempItemsArr.length ? <button name='save' onClick={this.handleSave}>Save</button> : null}
             </div>
         )
     }

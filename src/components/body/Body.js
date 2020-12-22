@@ -19,19 +19,48 @@ export class Body extends React.Component {
         };
     }
 
-    handleNewTodos = (newTodos) => {
+    handleAddItems = (newItems) => {
         this.setState({
-            todoArr: [...this.state.todoArr, ...newTodos]
+            todoArr: [...this.state.todoArr, ...newItems]
         })
     }
 
-    handleDelTodos = (id) => {
-        let todoArr = this.state.todoArr;
-        todoArr.splice(id, 1);
+    handleDelItem = (id, origin) => {
+        let newArr = null;
 
-        this.setState({
-            todoArr
-        })
+        if (origin === 'todoList') {
+            newArr = this.state.todoArr;
+            newArr.splice(id, 1);
+
+            this.setState({
+                todoArr: newArr
+            })
+        }
+        else if (origin === 'doneList') {
+            newArr = this.state.doneArr;
+            newArr.splice(id, 1);
+
+            this.setState({
+                doneArr: newArr
+            })
+        }
+    }
+
+    handleMoveItem = (i, origin) => {
+        if (origin === 'todoList') {
+            let newItem = this.state.todoArr[i];
+            this.setState({
+                doneArr: [...this.state.doneArr, newItem]
+            })
+        }
+        else if (origin === 'doneList') {
+            let newItem = this.state.doneArr[i];
+            this.setState({
+                todoArr: [...this.state.todoArr, newItem]
+            })
+        }
+
+        this.handleDelItem(i, origin);
     }
 
     render() {
@@ -44,13 +73,15 @@ export class Body extends React.Component {
                     <TodoList
                         todoArr={this.state.todoArr}
                         doneArr={this.state.doneArr}
-                        handleNewTodos={this.handleNewTodos}
-                        handleDelTodos={this.handleDelTodos} />
+                        handleAddItems={this.handleAddItems}
+                        handleDelItem={this.handleDelItem}
+                        handleMoveItem={this.handleMoveItem} />
                     <DoneList
                         todoArr={this.state.todoArr}
                         doneArr={this.state.doneArr}
-                        handleNewTodos={this.handleNewTodos}
-                        handleDelTodos={this.handleDelTodos} />
+                        handleAddItems={this.handleAddItems}
+                        handleDelItem={this.handleDelItem}
+                        handleMoveItem={this.handleMoveItem} />
                 </div>
             </div>
         )
