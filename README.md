@@ -26,13 +26,20 @@ Expected functionality:
 +8. button to toggle all on/off (?) 
 (probably for me to remember display: none thing, but I get it, so won't do, complete!)
 
-9. Make it look and act better
 
+At this point main goal is done, todo list is working as a concept, but I should learn how to and perform following ones:
+
+
+9. Make it look beautiful and act better(?)
+
+10. SQL db to store and load todos + what've been done just now / done through all the time
+
+11. Per-user split in db by entering id/pass on todo-app load (?)
 
 *Personally expect:
 
 
-1. A lot of external html/css
+1. A lot of external html/css :)
 
 
 
